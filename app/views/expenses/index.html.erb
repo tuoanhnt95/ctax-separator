@@ -1,0 +1,40 @@
+<div class="px-5 py-3">
+  <h2>All Expenses (<%=@expenses.length%>)</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Type</th>
+        <th scope="col">Total Amount</th>
+        <th scope="col">After tax 10%</th>
+        <th scope="col">After tax 8%</th>
+        <th scope="col">After tax 0%</th>
+        <th scope="col">Total tax</th>
+        <th scope="col">Status</th>
+        <th scope="col">Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @expenses.each do |expense| %>
+        <tr>
+          <th scope="row"><%= expense.id %></th>
+          <td><%= expense.type %></td>
+          <td>¥<%= expense.total_amount_yen %></td>
+          <td>¥<%= expense.after_tax_10 %></td>
+          <td>¥<%= expense.total_amount_yen - expense.after_tax_10 - expense.after_tax_0 %></td>
+          <td>¥<%= expense.after_tax_0 %></td>
+          <td>¥<%= (expense.after_tax_10)/11 + (expense.total_amount_yen - expense.after_tax_10 - expense.after_tax_0)/108*8 %></td>
+          <td><%= expense.approved ? 'Approved' : 'Submitted' %></td>
+          <td><%= link_to edit_expense_path(expense) do %>
+            <i class="fa-sharp fa-solid fa-pen"></i>
+            <% end %>
+          </td>
+          <td><%= link_to expense_path(expense), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }  do %>
+            <i class="fas fa-trash-alt"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

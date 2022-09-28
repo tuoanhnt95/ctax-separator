@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  total_amount_yen: 1
+  after_tax_10: 1
+  after_tax_0: 1
+  approved: false
+  type: 
+
+two:
+  total_amount_yen: 1
+  after_tax_10: 1
+  after_tax_0: 1
+  approved: false
+  type: 

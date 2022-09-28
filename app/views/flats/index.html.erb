@@ -1,0 +1,10 @@
+<%= render 'shared/navbar' %>
+
+<div class="px-5 py-3">
+  <h2>All our Flats (<%=@flats.length%>)</h2>
+  <% @flats.each do |flat| %>
+    <%= flat.name %>
+    <br>
+  <% end %>
+
+</div>

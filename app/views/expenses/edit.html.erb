@@ -1,0 +1,11 @@
+
+<div class="px-5 py-3">
+  <h2>Edit expense #<%=@expense.id%></h2>
+  <br>
+  <h4>Total amount: ¥<%= @expense.total_amount_yen %></h4>
+  <%= simple_form_for(@expense) do |f| %>
+    <%= f.input :after_tax_10 %>
+    <%= f.input :after_tax_0 %>
+    <%= f.submit  %>
+  <% end %>
+</div>

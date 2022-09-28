@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsSimpleAirbnb</title>
+    <title>Tax Separator</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
+    <div class="p-3 bg-light d-flex justify-content-between">
+      <h5>
+        <%= link_to 'Expense Tax Separator', expenses_path, class: 'text-decoration-none text-dark' %>
+      </h5>
+      <%= link_to "Create Expense", new_expense_path, class: 'btn btn-outline-primary' %>
+    </div>
     <%= yield %>
   </body>
 </html>

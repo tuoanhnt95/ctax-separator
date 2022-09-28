@@ -1,0 +1,10 @@
+<div class="px-5 py-3">
+  <h2>New Expense</h2>
+
+  <%= simple_form_for(@expense) do |f| %>
+    <%= f.input :total_amount_yen %>
+    <%= f.input :type %>
+    <%= f.submit %>
+  <% end %>
+
+</div>
