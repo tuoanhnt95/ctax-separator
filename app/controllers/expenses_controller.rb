@@ -16,7 +16,7 @@ class ExpensesController < ApplicationController
     @expense.after_tax_10 = @expense.total_amount_yen
     @expense.after_tax_0 = 0
     @after_tax_8 = Expense.after_tax_8(@expense)
-    @expense.type = 'meals'
+    @expense.expense_type = 'meals'
     if @expense.save
       redirect_to expenses_path
     else
@@ -48,6 +48,6 @@ class ExpensesController < ApplicationController
   end
 
   def expense_params
-    params.require(:expense).permit(:total_amount_yen, :after_tax_10, :after_tax_0, :approved, :type)
+    params.require(:expense).permit(:total_amount_yen, :after_tax_10, :after_tax_0, :approved, :expense_type, :ctax10, :ctax8, :ctax0)
   end
 end

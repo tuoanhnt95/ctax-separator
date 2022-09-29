@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_51_003731) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_51_003732) do
   create_table "expenses", force: :cascade do |t|
     t.integer "total_amount_yen"
     t.integer "after_tax_10"
     t.integer "after_tax_0"
     t.boolean "approved", default: false
-    t.string "type"
+    t.string "expense_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "ctax10", default: true
