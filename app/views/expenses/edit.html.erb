@@ -3,19 +3,29 @@
   <br>
   <h4>Total amount: ¥<%= @expense.total_amount_yen %></h4>
   <%= simple_form_for(@expense) do |f| %>
-    <table class='table table-striped'>
+    <table class='table table-striped'
+      data-controller="edit-tax-rates">
       <thead>
         <tr>
           <th scope="col">#</th>
           <th scope="col">Type</th>
           <th scope="col">Total Amount</th>
-          <th scope="col">
+          <th scope="col"
+            data-edit-tax-rates-target="ctax10"
+            data-action="click->edit-tax-rates#send"
+            >
             <%= f.input :ctax10, as: :boolean %>
           </th>
-          <th scope="col">
+          <th scope="col"
+            data-edit-tax-rates-target="ctax8"
+            data-action="click->edit-tax-rates#send"
+          >
             <%= f.input :ctax8, as: :boolean %>
           </th>
-          <th scope="col">
+          <th scope="col"
+            data-edit-tax-rates-target="ctax0"
+            data-action="click->edit-tax-rates#send"
+          >
             <%= f.input :ctax0, as: :boolean %>
           </th>
           <th scope="col">Total tax</th>
@@ -29,7 +39,9 @@
           <td>¥<%=@expense.total_amount_yen %></td>
           <td class='d-flex'>
             ¥
-            <%=f.input :after_tax_10, label: false %>
+            <div data-edit-tax-rates-target="afterTax10">
+              <%=f.input :after_tax_10, label: false %>
+            </div>
           </td>
           <td>¥<%=@expense.total_amount_yen - @expense.after_tax_10 - @expense.after_tax_0 %></td>
           <td class='d-flex'>
